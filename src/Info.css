@@ -1,0 +1,20 @@
+.Info #weatherDescription {
+	font-size: 25px;
+	text-transform: capitalize;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+.Info #city_selected {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	font-size: 100px;
+	font-weight: bold;
+}
+
+.Info #date-formatted {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	font-size: 50px;
+	font-weight: bold;
+}

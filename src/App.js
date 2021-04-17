@@ -1,23 +1,37 @@
-import logo from "./logo.svg";
 import "./App.css";
+import Info from "./Info";
+import Icon from "./Icon";
+import Temperature from "./Temperature";
+import SearchForm from "./SearchForm";
+import CurrentLocation from "./CurrentLocation";
+import HumidityWind from "./HumidityWind";
+import Footer from "./Footer";
 
 function App() {
 	return (
 		<div className="App">
-			<header className="App-header">
-				<img src={logo} className="App-logo" alt="logo" />
-				<p>Hello world</p>
-				<a
-					className="App-link"
-					href="https://reactjs.org"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					Learn React
-				</a>
-			</header>
+			<section>
+				<div className="row">
+					<div className="col-6">
+						<Info />
+						<div className="row">
+							<div className="col-4">
+								<Icon />
+							</div>
+							<div className="col-8">
+								<Temperature />
+							</div>
+						</div>
+					</div>
+					<div className="col-6">
+						<SearchForm />
+						<CurrentLocation />
+						<HumidityWind />
+					</div>
+				</div>
+			</section>
+			<Footer />
 		</div>
 	);
 }
-
 export default App;

@@ -1,0 +1,12 @@
+.CurrentLocation #current-Location {
+	margin-top: 50px;
+}
+
+.CurrentLocation button {
+	padding: 5px 10px;
+	margin-top: 20px;
+	color: black;
+	border-width: 1px;
+	border-radius: 30px;
+	box-shadow: 0px;
+}
