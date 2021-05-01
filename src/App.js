@@ -1,37 +1,67 @@
 import "./App.css";
 import Info from "./Info";
-import Icon from "./Icon";
-import Temperature from "./Temperature";
-import SearchForm from "./SearchForm";
 import CurrentLocation from "./CurrentLocation";
-import HumidityWind from "./HumidityWind";
 import Footer from "./Footer";
+import React, { useState } from "react";
+import axios from "axios";
 
-function App() {
-	return (
-		<div className="App">
-			<section>
-				<div className="row">
-					<div className="col-6">
-						<Info />
+export default function App() {
+	const [city, setCity] = useState("Madrid");
+	const [info, setInfo] = useState({ ready: false });
+
+	function displayInfo(response) {
+		setInfo({
+			ready: true,
+			name: response.data.name,
+			date: new Date(response.data.dt * 1000),
+			temperature: Math.round(response.data.main.temp),
+			humidity: Math.round(response.data.main.humidity),
+			wind: Math.round(response.data.wind.speed),
+			icon: response.data.weather[0].icon,
+		});
+	}
+	function search() {
+		let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=523328191cb42f7e509a7d1cfe8f3757&units=metric`;
+		axios.get(apiUrl).then(displayInfo);
+	}
+	function handleSubmit(event) {
+		event.preventDefault();
+		search();
+	}
+	function updateCity(event) {
+		setCity(event.target.value);
+	}
+	if (info.ready) {
+		return (
+			<div className="App">
+				<div className="container">
+					<section>
 						<div className="row">
-							<div className="col-4">
-								<Icon />
+							<div className="col-7">
+								<Info defaultCity="Madrid" data={info} />
 							</div>
-							<div className="col-8">
-								<Temperature />
+							<div className="col-5">
+								<form className="SearchForm" onSubmit={handleSubmit}>
+									<input
+										id="search-city"
+										type="search"
+										placeholder="Enter name of the city"
+										autoComplete="off"
+										onChange={updateCity}
+									/>
+									<input type="submit" Value="Search" />
+								</form>
+
+								<CurrentLocation />
 							</div>
 						</div>
-					</div>
-					<div className="col-6">
-						<SearchForm />
-						<CurrentLocation />
-						<HumidityWind />
-					</div>
+					</section>
+					<Footer />
 				</div>
-			</section>
-			<Footer />
-		</div>
-	);
+			</div>
+		);
+	} else {
+		search();
+		return <div>Loading data...</div>;
+	}
 }
-export default App;
