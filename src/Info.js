@@ -1,6 +1,7 @@
 import React from "react";
 import "./Info.css";
 import FormattedDate from "./FormattedDate";
+import ConvertTemperature from "./ConvertTemperature";
 
 export default function Info(props) {
 	return (
@@ -16,15 +17,24 @@ export default function Info(props) {
 
 			<div className="row">
 				<div className="col-6">
-					<p className="temperatureUnits">{props.data.temperature}°C</p>
+					<img
+						src={props.data.iconUrl}
+						alt={props.data.description}
+						className="float-left"
+					/>
 				</div>
 				<div className="col-6">
-					<div className="HumidityWind">
-						<div id="humidityID">
-							Humidity: {props.data.humidity}% <br />
-						</div>
-						<div id="windID">Wind: {props.data.wind}km/h</div>
+					<p className="temperatureUnits">
+						<ConvertTemperature temp={props.data.temperature} />
+					</p>
+				</div>
+			</div>
+			<div className="row">
+				<div className="HumidityWind">
+					<div id="humidityID">
+						Humidity: {props.data.humidity}% <br />
 					</div>
+					<div id="windID">Wind: {props.data.wind}km/h</div>
 				</div>
 			</div>
 		</div>

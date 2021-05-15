@@ -25,9 +25,10 @@
 
 .Info #humidityID {
 	font-size: 30px;
-	margin-top: 20px;
+	margin-left: 20px;
 }
 
 .Info #windID {
 	font-size: 30px;
+	margin-left: 20px;
 }
