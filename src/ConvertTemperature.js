@@ -5,14 +5,12 @@ export default function ConvertTemperature(props) {
 
 	function convertFah(event) {
 		event.preventDefault();
-        setUnit = "fahrenheit"
-		let tempF = ;
-
+		setUnit = "fahrenheit";
 	}
 
 	function convertCel(event) {
 		event.preventDefault();
-		setTemperature = props.temp;
+		setUnit = "celsius";
 	}
 	if (unit === "celsius") {
 		return (
@@ -27,7 +25,7 @@ export default function ConvertTemperature(props) {
 	} else {
 		return (
 			<div className="tempConversion">
-				<div> {Math.Round((props.temp * 9) / 5 + 32)} </div>
+				<div> {Math.round((props.temp * 9) / 5 + 32)} </div>
 				<a href="/" onClick={convertCel}>
 					°C |
 				</a>
