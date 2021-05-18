@@ -13,12 +13,12 @@ export default function Info(props) {
 				<FormattedDate date={props.data.date} />
 			</p>
 			<br />
-			<p id="weatherDescription">Sunny</p>
+			<p id="weatherDescription">{props.data.description}</p>
 
 			<div className="row">
 				<div className="col-6">
 					<img
-						src={props.data.iconUrl}
+						src={props.data.icon}
 						alt={props.data.description}
 						className="float-left"
 					/>

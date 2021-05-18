@@ -12,12 +12,13 @@ export default function App() {
 	function displayInfo(response) {
 		setInfo({
 			ready: true,
+			coordinates: response.data.coord,
 			name: response.data.name,
 			date: new Date(response.data.dt * 1000),
 			temperature: Math.round(response.data.main.temp),
 			humidity: Math.round(response.data.main.humidity),
 			wind: Math.round(response.data.wind.speed),
-			iconUrl: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}d@2x.png"`,
+			icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
 			description: response.data.weather[0].description,
 		});
 	}
@@ -43,16 +44,26 @@ export default function App() {
 							</div>
 							<div className="col-5">
 								<form className="SearchForm" onSubmit={handleSubmit}>
-									<input
-										id="search-city"
-										type="search"
-										placeholder="Enter name of the city"
-										autoComplete="off"
-										onChange={updateCity}
-									/>
-									<input type="submit" Value="Search" />
+									<div className="row">
+										<div className="col-7">
+											<input
+												id="search-city"
+												type="search"
+												placeholder="Enter name of the city"
+												autoComplete="off"
+												onChange={updateCity}
+												className="form-control form-control-sm"
+											/>
+										</div>
+										<div className="col-3">
+											<input
+												type="submit"
+												value="Search"
+												className="btn btn-primary btn-sm"
+											/>
+										</div>
+									</div>
 								</form>
-
 								<CurrentLocation />
 							</div>
 						</div>

@@ -3,8 +3,10 @@ import "./CurrentLocation.css";
 
 export default function CurrentLocation() {
 	return (
-		<div className="CurrentLocation">
-			<button>Current location</button>
+		<div className="currentLocation">
+			<button type="button" className="btn btn-secondary btn-sm">
+				Current location
+			</button>
 		</div>
 	);
 }

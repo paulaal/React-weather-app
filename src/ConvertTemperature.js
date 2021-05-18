@@ -1,36 +1,41 @@
 import React, { useState } from "react";
+import "./ConvertTemperature.css";
 
 export default function ConvertTemperature(props) {
 	const [unit, setUnit] = useState("celsius");
 
 	function convertFah(event) {
 		event.preventDefault();
-		setUnit = "fahrenheit";
+		setUnit("fahrenheit");
 	}
 
 	function convertCel(event) {
 		event.preventDefault();
-		setUnit = "celsius";
+		setUnit("celsius");
 	}
 	if (unit === "celsius") {
 		return (
-			<div className="tempConversion">
-				<div>{props.temp}</div>
-				<div>°C |</div>
-				<a h ref="/" onClick={convertFah}>
-					°F
-				</a>
-			</div>
+			<span className="tempConversion">
+				<span>{props.temp}</span>
+				<span className="unit">
+					°C|
+					<a href="/" onClick={convertFah}>
+						°F
+					</a>
+				</span>
+			</span>
 		);
 	} else {
 		return (
-			<div className="tempConversion">
-				<div> {Math.round((props.temp * 9) / 5 + 32)} </div>
-				<a href="/" onClick={convertCel}>
-					°C |
-				</a>
-				<div>°F</div>
-			</div>
+			<span className="tempConversion">
+				<span> {Math.round((props.temp * 9) / 5 + 32)} </span>
+				<span className="unit">
+					<a href="/" onClick={convertCel}>
+						°C
+					</a>
+					|°F
+				</span>
+			</span>
 		);
 	}
 }
