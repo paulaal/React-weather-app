@@ -46,14 +46,16 @@ export default function App() {
 								<form className="SearchForm" onSubmit={handleSubmit}>
 									<div className="row">
 										<div className="col-7">
-											<input
-												id="search-city"
-												type="search"
-												placeholder="Enter name of the city"
-												autoComplete="off"
-												onChange={updateCity}
-												className="form-control form-control-sm"
-											/>
+											<span className="searchForm">
+												<input
+													id="search-city"
+													type="search"
+													placeholder="Enter city name"
+													autoComplete="off"
+													onChange={updateCity}
+													className="form-control form-control-sm"
+												/>
+											</span>
 										</div>
 										<div className="col-3">
 											<input

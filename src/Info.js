@@ -6,22 +6,21 @@ import ConvertTemperature from "./ConvertTemperature";
 export default function Info(props) {
 	return (
 		<div className="Info">
-			<h5 id="city_selected"> {props.data.name} </h5>
-			<br />
+			<h5 className="city_selected"> {props.data.name} </h5>
 			<p id="date-formatted">
 				{" "}
 				<FormattedDate date={props.data.date} />
 			</p>
-			<br />
-			<p id="weatherDescription">{props.data.description}</p>
-
+			<p className="weatherDescription">{props.data.description}</p>
 			<div className="row">
 				<div className="col-6">
-					<img
-						src={props.data.icon}
-						alt={props.data.description}
-						className="float-left"
-					/>
+					<div className="weatherIcon">
+						<img
+							src={props.data.icon}
+							alt={props.data.description}
+							className="float-center"
+						/>
+					</div>
 				</div>
 				<div className="col-6">
 					<p className="temperatureUnits">

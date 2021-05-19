@@ -20,10 +20,10 @@
 }
 
 .App .btn {
-	min-width: 110px;
+	min-width: 120px;
+	margin-right: 45px;
 }
 
-.col-3 {
-	margin-right: 45px;
-	min-width: 93px;
+.SearchForm {
+	margin-right: 15px;
 }
