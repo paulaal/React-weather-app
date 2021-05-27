@@ -2,6 +2,7 @@ import "./App.css";
 import Info from "./Info";
 import CurrentLocation from "./CurrentLocation";
 import Footer from "./Footer";
+import Forecast from "./Forecast";
 import React, { useState } from "react";
 import axios from "axios";
 
@@ -67,6 +68,7 @@ export default function App() {
 									</div>
 								</form>
 								<CurrentLocation />
+								<Forecast coord={info.coordinates} />
 							</div>
 						</div>
 					</section>
