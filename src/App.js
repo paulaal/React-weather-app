@@ -1,6 +1,5 @@
 import "./App.css";
 import Info from "./Info";
-import CurrentLocation from "./CurrentLocation";
 import Footer from "./Footer";
 import Forecast from "./Forecast";
 import React, { useState } from "react";
@@ -34,6 +33,17 @@ export default function App() {
 	function updateCity(event) {
 		setCity(event.target.value);
 	}
+	function getLocation(event) {
+		event.preventDefault();
+		navigator.geolocation.getCurrentPosition(obtainCoordinates);
+	}
+	function obtainCoordinates(position) {
+		let lon = position.coords.longitude;
+		let lat = position.coords.latitude;
+		let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=523328191cb42f7e509a7d1cfe8f3757&units=metric`;
+		axios.get(url).then(displayInfo);
+	}
+
 	if (info.ready) {
 		return (
 			<div className="App">
@@ -67,7 +77,15 @@ export default function App() {
 										</div>
 									</div>
 								</form>
-								<CurrentLocation />
+								<div className="currentLocation">
+									<button
+										type="button"
+										className="btn btn-secondary btn-sm"
+										onClick={getLocation}
+									>
+										Current location
+									</button>
+								</div>
 								<Forecast coord={info.coordinates} />
 							</div>
 						</div>

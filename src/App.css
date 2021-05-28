@@ -27,3 +27,11 @@
 .SearchForm {
 	margin-right: 15px;
 }
+
+.currentLocation {
+	border-width: 1px;
+	border-radius: 30px;
+	box-shadow: 0px;
+	margin-left: 185px;
+	margin-top: 10px;
+}
