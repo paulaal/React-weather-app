@@ -5,7 +5,6 @@ import WeatherForecastDay from "./WeatherForecastDay";
 export default function Forecast(props) {
 	let [ready, setReady] = useState(false);
 	let [forecast, setForecast] = useState(null);
-	let [weatherIcon, setWeatherIcon] = useState(null);
 
 	useEffect(() => {
 		setReady(false);
@@ -14,9 +13,6 @@ export default function Forecast(props) {
 	function handleResponse(response) {
 		setForecast(response.data.daily);
 
-		setWeatherIcon(
-			`http://openweathermap.org/img/wn/${response.data.daily[0].weather[0].icon}@2x.png`
-		);
 		setReady(true);
 	}
 
@@ -27,7 +23,7 @@ export default function Forecast(props) {
 					if ((index < 5) & (index > 0)) {
 						return (
 							<div className="row" key={index}>
-								<WeatherForecastDay data={dailyForecast} icon={weatherIcon} />
+								<WeatherForecastDay data={dailyForecast} />
 							</div>
 						);
 					} else {

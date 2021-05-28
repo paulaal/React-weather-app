@@ -28,7 +28,7 @@ export default function WeatherForecastDay(props) {
 				<div className="col-6">
 					<span className="weatherIcon">
 						<img
-							src={props.icon}
+							src={`http://openweathermap.org/img/wn/${props.data.weather[0].icon}@2x.png`}
 							alt={props.data.weather[0].description}
 							className="float-center"
 						/>
