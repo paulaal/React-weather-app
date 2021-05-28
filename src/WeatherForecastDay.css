@@ -1,0 +1,27 @@
+.day {
+	margin-top: 20px;
+	margin-left: 30px;
+	font-size: 20px;
+}
+.tempMax {
+	font-weight: bold;
+	margin: 0 auto;
+	margin-left: 30px;
+}
+
+.tempMin {
+	font-weight: lighter;
+	margin: 0 auto;
+}
+
+.weatherIcon {
+	margin-top: 0px;
+	font-size: 20px;
+	width: 20px;
+}
+
+.WeatherForecastDay:hover {
+	background-color: grey;
+	opacity: 0.8;
+	border-radius: 10px;
+}

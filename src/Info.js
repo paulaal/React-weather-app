@@ -13,16 +13,16 @@ export default function Info(props) {
 			</span>
 			<span className="weatherDescription">{props.data.description}</span>
 			<div className="row">
-				<div className="col-6">
+				<div className="col-4">
 					<div className="weatherIcon">
 						<img
 							src={props.data.icon}
 							alt={props.data.description}
-							className="float-center"
+							className="weatherMainIcon"
 						/>
 					</div>
 				</div>
-				<div className="col-6">
+				<div className="col-8">
 					<p className="temperatureUnits">
 						<ConvertTemperature temp={props.data.temperature} />
 					</p>
