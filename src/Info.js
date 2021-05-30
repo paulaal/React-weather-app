@@ -32,7 +32,11 @@ export default function Info(props) {
 
 					<div className="col-8">
 						<p className="temperatureUnits">
-							<ConvertTemperature temp={props.data.temperature} />
+							<ConvertTemperature
+								temp={props.data.temperature}
+								unit={unit}
+								setUnit={setUnit}
+							/>
 						</p>
 					</div>
 				</div>
@@ -68,7 +72,11 @@ export default function Info(props) {
 
 					<div className="col-8">
 						<p className="temperatureUnits">
-							<ConvertTemperature temp={props.data.temperature} />
+							<ConvertTemperature
+								temp={props.data.temperature}
+								unit={unit}
+								setUnit={setUnit}
+							/>
 						</p>
 					</div>
 				</div>
